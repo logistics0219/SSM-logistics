@@ -26,7 +26,6 @@
       <scope>test</scope>
     </dependency>
     <!-- 第一部分：Spring 配置-->
-    <!-- Spring core -->
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-core</artifactId>
