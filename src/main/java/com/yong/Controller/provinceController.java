@@ -24,7 +24,7 @@ public class provinceController {
         for(int i=0;i<list.size();i++){
             object.add(list.get(i).getMap());
         }
-        System.out.println(JSON.toJSONString(object));
+        //System.out.println(JSON.toJSONString(object));
         return JSON.toJSONString(object);
     }
     @RequestMapping("/index")
