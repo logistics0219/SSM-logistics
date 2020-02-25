@@ -42,7 +42,7 @@
 
   <!--默认访问路径-->
   <welcome-file-list>
-    <welcome-file>deom.jsp</welcome-file>
+    <welcome-file></welcome-file>
   </welcome-file-list>
 </web-app>
 

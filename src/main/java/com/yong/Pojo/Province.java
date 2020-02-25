@@ -12,6 +12,8 @@ public class Province {
     private String name;
     private Double number;
     private String color;
+    private Double city_lo;
+    private  Double city_la;
 
     public Map<String,Object> getMap(){
         Map<String,Object> m = new HashMap();
@@ -58,13 +60,20 @@ public class Province {
         this.color = color;
     }
 
-    @Override
-    public String toString() {
-        return "Province{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", number=" + number +
-                ", color='" + color + '\'' +
-                '}';
+    public Double getCity_lo() {
+        return city_lo;
     }
+
+    public void setCity_lo(Double city_lo) {
+        this.city_lo = city_lo;
+    }
+
+    public Double getCity_la() {
+        return city_la;
+    }
+
+    public void setCity_la(Double city_la) {
+        this.city_la = city_la;
+    }
+
 }
