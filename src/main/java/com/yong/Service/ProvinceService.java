@@ -1,9 +1,7 @@
 package com.yong.Service;
 
-import com.yong.Pojo.City;
-
-import java.util.List;
+import com.yong.Pojo.Province;
 
 public interface ProvinceService {
-    public List<City> select1();
+    public Province selectByName(String name);
 }

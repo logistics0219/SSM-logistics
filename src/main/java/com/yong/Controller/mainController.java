@@ -2,6 +2,8 @@ package com.yong.Controller;
 
 import com.alibaba.fastjson.JSON;
 import com.yong.Pojo.City;
+import com.yong.Pojo.Province;
+import com.yong.Service.CityService;
 import com.yong.Service.ProvinceService;
 import com.yong.Utils.LocationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +15,9 @@ import java.util.*;
 
 
 @Controller
-public class provinceController {
+public class mainController {
+    @Autowired
+    private CityService cityService;
     @Autowired
     private ProvinceService provinceService;
 
@@ -21,7 +25,7 @@ public class provinceController {
     @ResponseBody
     public String select(){
         List<Object> object= new ArrayList<>();
-        List<City> list =provinceService.select1();
+        List<City> list =cityService.select1();
         for(int i=0;i<list.size();i++){
             object.add(list.get(i).getMap());
         }
@@ -39,11 +43,13 @@ public class provinceController {
     @RequestMapping("/Test")
     @ResponseBody
     public String Test(){
-        List<City> list = provinceService.select1();
+        Province p=provinceService.selectByName("福建省");
+        List<City> list = cityService.select1();
+        Map<Integer,Double> map=new HashMap<>();
         for(City c:list){
-
-            System.out.println(LocationUtils.getDistance(c.getCity_lo(), c.getCity_la(),117.17,31.52));
+            map.put(c.getId(),LocationUtils.getDistance(c.getCity_lo(), c.getCity_la(),p.getCaptial_lo(),p.getCaptial_la()));
+            //System.out.println();
         }
-        return null;
+        return map.toString();
     }
 }

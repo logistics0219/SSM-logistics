@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.yong.Dao.ProvinceDao">
-<select id="select1" resultType="com.yong.Pojo.City">
-    select id,name,number,color,city_lo,city_la from anhui
+    <select id="selectByName" resultType="com.yong.Pojo.Province" parameterType="java.lang.String">
+    select * from province where name =#{name}
 </select>
 
 </mapper>
