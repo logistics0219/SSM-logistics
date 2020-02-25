@@ -21,7 +21,7 @@ public class LocationUtils {
         sa2 = Math.sin(a / 2.0);
         sb2 = Math.sin(b / 2.0);
         d = 2 * R * Math.asin(Math.sqrt(sa2 * sa2 + Math.cos(lat1) * Math.cos(lat2) * sb2 * sb2));
-        return d;
+        return d/1000;
     }
 
 

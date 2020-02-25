@@ -1,13 +1,11 @@
 package com.yong.Pojo;
 
-
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class Province {
+public class City {
     private Integer id;
     private String name;
     private Double number;
