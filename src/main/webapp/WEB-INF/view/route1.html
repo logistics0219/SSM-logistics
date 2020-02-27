@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <style>
+        html,
+        body,
+        #container {
+            width: 100%;
+            height: 100%;
+        }
+        #panel {
+            position: fixed;
+            background-color: white;
+            max-height: 90%;
+            overflow-y: auto;
+            top: 10px;
+            right: 10px;
+            width: 280px;
+        }
+        #panel .amap-lib-driving {
+            border-radius: 4px;
+            overflow: hidden;
+        }
+    </style>
+    <title>经纬度获取货车规划数据</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://webapi.amap.com/maps?v=1.4.15&key=d6897979acd91e10e34d2ba652da5933&plugin=AMap.TruckDriving"></script>
+    <script src="https://a.amap.com/jsapi_demos/static/demo-center/js/demoutils.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<div id="panel"></div>
+<script type="text/javascript">
+    var map = new AMap.Map("container", {
+        center: [116.397559, 39.89621],
+        zoom: 14
+    });
+
+    var truckDriving = new AMap.TruckDriving({
+        map: map,
+        policy: 0, // 规划策略
+        size: 1, // 车型大小
+        width: 2.5, // 宽度
+        height: 2, // 高度
+        load: 1, // 载重
+        weight: 12, // 自重
+        axlesNum: 2, // 轴数
+        province: '京', // 车辆牌照省份
+        isOutline: true,
+        outlineColor: '#ffeeee',
+        panel: 'panel'
+    })
+
+    var path = []
+    path.push({lnglat:[118.33940613596579,32.26127087204081]});//起点
+    //path.push({lnglat:[116.321354, 39.896436]});//途径
+    path.push({lnglat:[118.80242172124585,32.06465288561847]});//终点
+
+    truckDriving.search(path, function(status, result) {
+        if (status === 'complete') {
+            log.success('获取货车规划数据成功')
+        } else {
+            log.error('获取货车规划数据失败：' + result)
+        }
+    })
+</script>
+</body>
+</html>

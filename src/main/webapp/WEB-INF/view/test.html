@@ -6,19 +6,18 @@
     <script src="js/jquery-2.2.1.min.js"></script>
 </head>
 <script type="text/javascript">
+    //经纬度获取
     $.ajax({
-        url:"https://restapi.amap.com/v3/direction/driving",
+        url:"https://restapi.amap.com/v3/geocode/geo",
         type:'get',
         dateType:'json',
         data:{
-            origin:'118.33940613596579,32.26127087204081',
-            destination:'118.80242172124585,32.06465288561847',
-            strategy:0,
+            address:'南京',
             key:'db1662e575cbc4ebab86cd69b903b75f'
         },
         success:function(data){
             alert("成功");
-            alert(data);
+            alert(data.geocodes[0].location);
         },
         error:function (e) {
             alert("错误");

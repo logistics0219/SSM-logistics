@@ -32,6 +32,10 @@ public class mainController {
         //System.out.println(JSON.toJSONString(object));
         return JSON.toJSONString(object);
     }
+    @RequestMapping("/route1")
+    public String route1(){
+        return "route1";
+    }
     @RequestMapping("/index")
     public String index(){
         return "index";
