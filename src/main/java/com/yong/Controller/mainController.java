@@ -36,6 +36,10 @@ public class mainController {
     public String index(){
         return "index";
     }
+    @RequestMapping("/testhtml")
+    public String testhtml(){
+        return "test";
+    }
     @RequestMapping("/detail")
     public String detail(){
         return "detail";
