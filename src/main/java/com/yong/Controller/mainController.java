@@ -36,6 +36,14 @@ public class mainController {
     public String index(){
         return "index";
     }
+    @RequestMapping("/tab1")
+    public String tab1(){return "tab1"; }
+    @RequestMapping("/tab2")
+    public String tab2(){return "tab2"; }
+    @RequestMapping("/tab3")
+    public String tab3(){return "tab3"; }
+    @RequestMapping("/tab4")
+    public String tab4(){return "tab4"; }
     @RequestMapping("/detail")
     public String detail(){
         return "detail";
